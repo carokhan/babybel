@@ -1,0 +1,4 @@
+{
+    "sketch": "driveReceiver.ino",
+    "board": "arduino:avr:uno"
+}
