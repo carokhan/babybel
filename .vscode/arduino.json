@@ -1,4 +1,6 @@
 {
     "sketch": "driveReceiver.ino",
-    "board": "arduino:avr:uno"
+    "board": "arduino:avr:uno",
+    "port": "/dev/ttyACM0",
+    "programmer": "arduino:avrisp"
 }
