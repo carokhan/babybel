@@ -26,9 +26,9 @@ void setup() {
     pinMode(digitalInR2, INPUT);
     controllers[0].attach(pwmLeft);
     controllers[1].attach(pwmRight);
-    Serial.println("T-minus 20 seconds");
+    // Serial.println("T-minus 20 seconds");
     digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-    delay(20000);
+    // delay(20000);
     digitalWrite(LED_BUILTIN, LOW);
 }
 
@@ -41,7 +41,7 @@ void loop() {
     Serial.println("------");
     for (int i = 0; i < 2; i++) {
       if (vals[i] > 1450 && vals[i] < 1550) {
-        vals[i] = 0;
+        vals[i] = 1500;
       } 
       if (vals[i] > 1815) {
         vals[i] = 2000;
@@ -49,10 +49,11 @@ void loop() {
       if (vals[i] < 1105) {
         vals[i] = 1000;
       }
-      if (vals[i] > 1500)
+      if (vals[i] > 1500) {
         controllers[i].write(ceil(vals[i]*1.1));
       }
       else {
         controllers[i].write(floor(vals[i]/1.1));
       }
+    }
 }
